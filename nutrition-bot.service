@@ -1,0 +1,18 @@
+[Unit]
+Description=Nutrition Bot v2
+After=network.target
+
+[Service]
+Type=simple
+User=node
+WorkingDirectory=/data/.openclaw/workspace/nutrition_bot_v2
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+EnvironmentFile=/data/.openclaw/workspace/nutrition_bot_v2/.env
+ExecStart=/usr/bin/python3 /data/.openclaw/workspace/nutrition_bot_v2/main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/data/.openclaw/workspace/nutrition_bot_v2/bot.log
+StandardError=append:/data/.openclaw/workspace/nutrition_bot_v2/bot.log
+
+[Install]
+WantedBy=multi-user.target
